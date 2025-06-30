@@ -1,0 +1,14 @@
+[Unit]
+Description=ATEN US3344I RS-485 USB Switch Control
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/mike/aten-ctrl.py --info
+Restart=on-failure
+User=mike
+WorkingDirectory=/home/mike/aten-ctrl
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
